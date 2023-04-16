@@ -1,0 +1,54 @@
+from turtle import Turtle, Screen
+
+
+x = int(input("Set sensitivity:"))
+print("\t\tInstructions")
+print("1.W to move forward.\n2.S to move backward.\n3.A to turn counter-clockwise.\n4.D to turn clockwise"
+      "\n5.C to reset the board.\n6.R to move without drawing\n7.P to put back the pen for moving"
+      "\n8.Click the screen to exit.")
+start = input("Press x to open the board:")
+
+while start.lower() == 'x':
+    tim = Turtle()
+    scr = Screen()
+
+
+    def move_fd():
+        tim.forward(x)
+
+
+    def move_bd():
+        tim.backward(x)
+
+
+    def counter():
+        new_heading = tim.heading() + x
+        tim.setheading(new_heading)
+
+
+    def clock():
+        new_heading = tim.heading() - x
+        tim.setheading(new_heading)
+
+
+    def clear():
+        tim.clear()
+        tim.penup()
+        tim.home()
+        tim.pendown()
+
+    def rm_pen():
+        tim.penup()
+
+    def keep_pen():
+        tim.pendown()
+
+    scr.listen()
+    scr.onkey(fun=move_fd, key="w")
+    scr.onkey(fun=move_bd, key='s')
+    scr.onkey(fun=counter, key='a')
+    scr.onkey(fun=clock, key='d')
+    scr.onkey(fun=clear, key='c')
+    scr.onkey(fun=rm_pen, key='r')
+    scr.onkey(fun=keep_pen, key='p')
+    scr.exitonclick()
