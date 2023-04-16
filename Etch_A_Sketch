@@ -1,3 +1,4 @@
+# creating an etch a sketch app using the turtle graphics
 from turtle import Turtle, Screen
 
 
@@ -10,6 +11,7 @@ start = input("Press x to open the board:")
 
 while start.lower() == 'x':
     tim = Turtle()
+    tim.speed("fastest")
     scr = Screen()
 
 
